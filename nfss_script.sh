@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Работа по SSH
+mkdir -p ~root/.ssh
+cp ~vagrant/.ssh/auth* ~root/.ssh
+
 # Установка пакетов для работы с NFS, создание общей папки и запуск сервисов + права user'у nfs
 yum install nfs-utils
 mkdir -p /var/NFSshare

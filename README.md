@@ -2,8 +2,21 @@
 NFSv3 on UDP + firewall
 
 VagrantFile поднимает 2 виртуалки: сервер (nfss) и клиент (nfsc)
+# ip: "192.168.50.10"
+# ip: "192.168.50.11"
+
 На сервере расшарена директория (/var/nfs)
-На клиенте она автоматически монтируется при старте системы (fstab или autofs ???)
-В шаре должна быть папка upload с правами на запись
+На клиенте она автоматически монтируется при старте системы (fstab)
+
+```
+192.168.50.10:/var/NFSshare /mnt/nfs/upload nfs vers=3,rw,hard,intr,rsize=8192,wsize=8192,timeo=14 0 0
+```
+
+В шаре папка /mnt/nfs/upload с правами на запись:
+
+```
+192.168.50.10:/var/NFSshare on /mnt/nfs/upload type nfs (rw,relatime,vers=3,rsize=32768,wsize=32768,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,mountaddr=192.168.50.10,mountvers=3,mountport=20048,mountproto=udp,local_lock=none,addr=192.168.50.10)
+```
+
 
 Конфигурация NFS: NFSv3 по UDP, включенный firewall

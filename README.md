@@ -5,7 +5,12 @@ VagrantFile поднимает 2 виртуалки: сервер (nfss) и кл
 ### ip: "192.168.50.10"
 ### ip: "192.168.50.11"
 
-На сервере расшарена директория (/var/nfs)
+На сервере расшарена директория (/var/NFSshare)
+```
+[root@nfss vagrant]# exportfs -s
+/var/NFSshare  192.168.50.0/24(sync,wdelay,hide,no_subtree_check,sec=sys,rw,secure,root_squash,no_all_squash)
+```
+
 На клиенте она автоматически монтируется при старте системы (fstab)
 
 ```
@@ -20,3 +25,8 @@ VagrantFile поднимает 2 виртуалки: сервер (nfss) и кл
 
 
 Конфигурация NFS: NFSv3 по UDP, включенный firewall
+```
+firewall-cmd --add-service=nfs
+firewall-cmd --add-service=rpc-bind
+firewall-cmd --add-service=mountd
+```

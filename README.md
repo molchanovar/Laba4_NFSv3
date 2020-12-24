@@ -1,6 +1,13 @@
 # Laba4_NFSv3
 NFSv3 on UDP + firewall
 
+Для запуска скачать и распаковать архив. Далее запустить виртуалки и поочереди зайти на сервер (nfss) и клиент (nfsc):
+```
+vagrant up
+vagrant ssh nfss
+vagrant ssh nfsc
+```
+
 VagrantFile поднимает 2 виртуалки: скрипты для сервера (nfss.sh) и клиента (nfsc.sh)
 #### nfss ip: "192.168.50.10"
 #### nfsc ip: "192.168.50.11"

@@ -7,6 +7,7 @@ cp ~vagrant/.ssh/auth* ~root/.ssh
 # Установка пакетов для работы с NFS, создание общей папки и запуск сервисов + права user'у nfs
 yum install nfs-utils
 mkdir -p /var/NFSshare
+chmod 777 /var/NFSshare
 chown -R nobody: /var/NFSshare
 systemctl enable {rpcbind,nfs-server,nfs-lock,nfs-idmap}
 systemctl restart {rpcbind,nfs-server,nfs-lock,nfs-idmap}

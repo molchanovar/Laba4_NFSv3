@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Работа по SSH
+mkdir -p ~root/.ssh
+cp ~vagrant/.ssh/auth* ~root/.ssh
+
 yum install nfs-utils
 mkdir -p /mnt/nfs/upload
 

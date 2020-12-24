@@ -4,6 +4,7 @@
 mkdir -p ~root/.ssh
 cp ~vagrant/.ssh/auth* ~root/.ssh
 
+# Скачивание NFS и создание общей шары 
 yum install nfs-utils
 mkdir -p /mnt/nfs/upload
 

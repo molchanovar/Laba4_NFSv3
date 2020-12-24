@@ -26,6 +26,7 @@ VagrantFile поднимает 2 виртуалки: сервер (nfss) и кл
 
 Конфигурация NFS: NFSv3 по UDP, включенный firewall
 ```
+rw,vers=3,mountproto=udp
 firewall-cmd --add-service=nfs
 firewall-cmd --add-service=rpc-bind
 firewall-cmd --add-service=mountd
